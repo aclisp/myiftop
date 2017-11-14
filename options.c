@@ -170,7 +170,7 @@ void options_set_defaults() {
         options.config_file = xstrdup("iftoprc");
     }
     options.config_file_specified = 0;
-
+    
 }
 
 /* usage:
@@ -257,7 +257,7 @@ void options_read_args(int argc, char **argv) {
             case 'F':
                 config_set_string("net-filter", optarg);
                 break;
-
+            
             case 'G':
                 config_set_string("net-filter6", optarg);
                 break;
@@ -350,7 +350,7 @@ int options_config_get_enum(char *name, config_enumeration_type* enumeration, in
     int i;
     if(config_get_string(name)) {
         if(config_get_enum(name, enumeration, &i)) {
-            *result = i;
+            *result = i; 
             return 1;
         }
     }
@@ -411,7 +411,7 @@ int options_config_get_bw_rate(char *directive, long long* result) {
 }
 
 /*
- * Read the net filter option.
+ * Read the net filter option.  
  */
 int options_config_get_net_filter() {
     char* s;
@@ -442,8 +442,8 @@ int options_config_get_net_filter() {
             }
             else {
                 if(n == 32) {
-                  /* This needs to be special cased, although I don't fully
-                   * understand why -pdw
+                  /* This needs to be special cased, although I don't fully 
+                   * understand why -pdw 
                    */
                   options.netfiltermask.s_addr = htonl(0xffffffffl);
                 }
@@ -454,7 +454,7 @@ int options_config_get_net_filter() {
                 }
             }
             options.netfilter = 1;
-        }
+        } 
         else {
             if (inet_aton(mask, &options.netfiltermask) != 0)
                 options.netfilter = 1;
@@ -470,7 +470,7 @@ int options_config_get_net_filter() {
 }
 
 /*
- * Read the net filter IPv6 option.
+ * Read the net filter IPv6 option.  
  */
 int options_config_get_net_filter6() {
     char* s;
