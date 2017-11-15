@@ -6,3 +6,4 @@ config.log
 config.status
 iftop
 stamp-h1
+.vscode/
