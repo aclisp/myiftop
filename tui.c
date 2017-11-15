@@ -64,7 +64,7 @@ void tui_print() {
 
   /* Headings */
   snprintf(label, PRINT_WIDTH, "%-*s", PRINT_WIDTH, "Host name (port/service if enabled)");
-  printf("%s %s     %10s %10s %10s %10s\n", "   #", label, "last 2s", "last 10s", "last 40s", "cumulative");
+  printf("%s %s     %10s %10s %10s %10s\n", "   #", label, "last 2s", "last 10s", "last 40s", "");
 
   /* Divider line */
   for (j = 0; j < PRINT_WIDTH + 52; j++) {
@@ -91,8 +91,8 @@ void tui_print() {
       printf(" %10s", buf0_10);
     }
     /* Cumulative sent data per connection */
-    readable_size(screen_line->total_sent, buf0_10, 10, 1024, 1);
-    printf(" %10s\n", buf0_10);
+    /*readable_size(screen_line->total_sent, buf0_10, 10, 1024, 1);*/
+    printf(" %10s\n", "");
 
     /* Receive rate per connection */
     printf("     %s%s", host2, " <=");
@@ -101,8 +101,8 @@ void tui_print() {
       printf(" %10s", buf0_10);
     }
     /* Cumulative received data per connection */
-    readable_size(screen_line->total_recv, buf0_10, 10, 1024, 1);
-    printf(" %10s\n", buf0_10);
+    /*readable_size(screen_line->total_recv, buf0_10, 10, 1024, 1);*/
+    printf(" %10s\n", "");
   }
 
   /* Divider line */
@@ -147,11 +147,11 @@ void tui_print() {
   printf("%s %10s %10s %10s\n", labellong, buf0_10, buf1_10, buf2_10);
 
   /* Cumulative totals */
-  snprintf(labellong, PRINT_WIDTH + 9, "%-*s", PRINT_WIDTH + 9, "Cumulative (sent/received/total):");
+  /*snprintf(labellong, PRINT_WIDTH + 9, "%-*s", PRINT_WIDTH + 9, "Cumulative (sent/received/total):");
   readable_size(history_totals.total_sent, buf0_10, 10, 1024, 1);
   readable_size(history_totals.total_recv, buf1_10, 10, 1024, 1);
   readable_size(history_totals.total_recv + history_totals.total_sent, buf2_10, 10, 1024, 1);
-  printf("%s %10s %10s %10s\n", labellong, buf0_10, buf1_10, buf2_10);
+  printf("%s %10s %10s %10s\n", labellong, buf0_10, buf1_10, buf2_10);*/
 
   /* Double divider line */
   for (j = 0; j < PRINT_WIDTH + 52; j++) {
