@@ -1,0 +1,15 @@
+#!/bin/bash
+set -x
+set +H
+
+THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+RETAIN=1000
+NOW=$(date +'%Y%m%d-%H%M%S')
+
+IFTOP="$THIS_DIR/iftop -s 10"
+IFTOP_SHOWPORT="$THIS_DIR/iftop -P -s 10"
+FILE_PREFIX=iftop
+FILE_POSTFIX=txt
+
+$IFTOP > $FILE_PREFIX.$NOW.$FILE_POSTFIX
+$IFTOP_SHOWPORT > $FILE_PREFIX.p.$NOW.$FILE_POSTFIX
